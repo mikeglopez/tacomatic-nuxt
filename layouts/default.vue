@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <h1 class="text-center">Tacomatic</h1>
+    <h1
+      class="text-center primary--text display-3 font-weight-black"
+    >
+      Tacomatic
+    </h1>
     <v-content>
       <v-container>
         <nuxt />
