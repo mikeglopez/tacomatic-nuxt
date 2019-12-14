@@ -37,7 +37,7 @@
 export default {
   data () {
     return {
-
+      address
     }
   },
   methods: {
@@ -57,6 +57,7 @@ export default {
     },
     // TODO:
     search() {
+
       $.ajax({
         method: 'GET',
         url: '/search',
@@ -68,6 +69,16 @@ export default {
         }
       });
     }
+
+    app.get('/search', (req, res) => {
+      const location = req.query;
+      getRestaurants(yelpToken, location)
+        .then((restaurants) => {
+          const sorted = restaurants.data.businesses.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+          res.status(200).send(sorted);
+        })
+        .catch(err => console.log('/search:', err.response.statusText));
+    });
   }
 }
 </script>
