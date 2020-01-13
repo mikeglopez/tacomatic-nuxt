@@ -4,6 +4,7 @@
       <v-col class="text-center">
         <v-row>
           <v-btn
+            @click="getLocation"
             class="mx-8"
             cols="4"
             color="secondary"
@@ -13,7 +14,6 @@
             Share Location
           </v-btn>
           <v-text-field
-
             cols="4"
             label="Address"
             outlined
@@ -37,18 +37,23 @@
 export default {
   data () {
     return {
-      address
-    }
+      location: {
+        latitude: 41.874,
+        longitude: -87.649
+      },
+      address: '',
+      restaurants: []
+    };
   },
   methods: {
-    getLocation() {
+    getLocation () {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-          this.address = "";
+          this.address = '';
           this.location = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
-          }
+          };
           this.search();
         });
       } else {
@@ -56,19 +61,15 @@ export default {
       }
     },
     // TODO:
-    // search() {
-
-    //   $.ajax({
-    //     method: 'GET',
-    //     url: '/search',
-    //     data: { location: this.state.location },
-    //     success: (list) => {
-    //       this.setState({
-    //         restaurants: list
-    //       });
-    //     }
-    //   });
-    // }
+    search () {
+      this.$axios.$get('/search', {
+        params: {
+          location: this.location
+        }
+      })
+        .then((list) => { this.restaurants = list; })
+        .catch(err => console.log('error:', err));
+    }
 
     // app.get('/search', (req, res) => {
     //   const location = req.query;
@@ -80,7 +81,7 @@ export default {
     //     .catch(err => console.log('/search:', err.response.statusText));
     // });
   }
-}
+};
 </script>
 
 <style>

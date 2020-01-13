@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <h1
-      class="heading text-center primary--text display-4 font-weight-black"
+      class="mt-12 heading text-center primary--text display-4 font-weight-black"
     >
       Tacomatic
     </h1>
@@ -16,9 +16,9 @@
 <script>
 export default {
   data () {
-    return {}
+    return {};
   }
-}
+};
 </script>
 
 <style scoped>
