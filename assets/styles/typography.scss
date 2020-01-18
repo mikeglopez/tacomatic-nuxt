@@ -1,0 +1,19 @@
+@import './colors';
+@import './fonts';
+
+// Headings
+h1, h2 {
+  @extend .permanent-marker;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.mobile-logo {
+  font-size: 3.5rem;
+}

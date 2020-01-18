@@ -1,0 +1,12 @@
+// Logo
+@font-face {
+  font-family: 'Permanent Marker';
+  src: url("https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap") format("woff2");
+}
+
+$permanent-marker: 'Permanent Marker', cursive;
+
+.permanent-marker {
+  font-family: $permanent-marker;
+  font-weight: 900;
+}

@@ -1,42 +1,53 @@
 <template>
-  <v-container>
+  <v-container fluid class="ma-0" style="height: 400px;background-image:url('https://i.imgur.com/8zHwgiS.jpg');">
     <v-row>
       <v-col class="text-center">
-        <v-row>
-          <v-btn
-            @click="getLocation"
-            class="mx-8"
-            cols="4"
-            color="secondary"
-            dark
-            x-large
-          >
-            Share Location
-          </v-btn>
-          <v-text-field
-            :value="address"
-            cols="4"
-            label="Address"
-            outlined
-          />
-          <v-btn
-            @click="getAddress(address)"
-            class="mx-3"
-            cols="4"
-            color="secondary"
-            dark
-            x-large
-          >
-            Find Tacos
-          </v-btn>
-        </v-row>
+        <location-modal />
+        <!-- <v-row>
+          <v-col cols="12" md="2">
+            <v-btn
+              @click="getLocation"
+              cols="4"
+              color="secondary"
+              dark
+              x-large
+            >
+              Share Location
+            </v-btn>
+          </v-col>
+          <v-col cols="12" md="8">
+            <address-autocomplete
+              v-model="address"
+              label="Address"
+            />
+          </v-col>
+          <v-col cols="12" md="1">
+            <v-btn
+              @click="getAddress(address)"
+              color="secondary"
+              dark
+              x-large
+            >
+              Find Tacos
+            </v-btn>
+          </v-col>
+        </v-row> -->
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+// import AddressAutocomplete from '@/components/utils/AddressAutocomplete';
+import LocationModal from '@/components/utils/LocationModal';
+// import MainButton from '@/components/global/MainButton';
+
 export default {
+  components: {
+    // AddressAutocomplete
+    LocationModal
+    // MainButton
+  },
   data () {
     return {
       location: {
