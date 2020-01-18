@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <h1
-      class="text-center primary--text display-3 font-weight-black"
+      class="heading text-center primary--text display-4 font-weight-black"
     >
       Tacomatic
     </h1>
@@ -20,3 +20,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+  .heading {
+    font-family: 'Permanent Marker', cursive !important;
+  }
+</style>
