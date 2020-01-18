@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <h1
-      class="mt-12 heading text-center primary--text display-4 font-weight-black"
-    >
-      Tacomatic
-    </h1>
+    <logo />
     <v-content>
       <v-container>
         <nuxt />
@@ -14,16 +10,14 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo';
+
 export default {
+  components: {
+    Logo
+  },
   data () {
     return {};
   }
 };
 </script>
-
-<style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
-  .heading {
-    font-family: 'Permanent Marker', cursive !important;
-  }
-</style>
