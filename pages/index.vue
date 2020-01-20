@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="ma-0" style="height: 400px;background-image:url('https://i.imgur.com/8zHwgiS.jpg');">
+  <v-container fluid class="ma-0">
     <v-row>
       <v-col class="text-center">
         <location-modal />
@@ -43,6 +43,7 @@ import LocationModal from '@/components/utils/LocationModal';
 // import MainButton from '@/components/global/MainButton';
 
 export default {
+  layout: 'home',
   components: {
     // AddressAutocomplete
     LocationModal

@@ -2,6 +2,7 @@
   <v-btn
     @click="$emit('click')"
     :class="btnClass"
+    :href="href"
     :outlined="outlined"
     :text="text"
     class="mainBtn"
@@ -15,14 +16,18 @@
 export default {
   props: {
     dark: Boolean,
+    href: String,
     light: Boolean,
     outlined: Boolean,
     text: Boolean
   },
   computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
     btnClass () {
       if (this.light) {
-        return 'btnLight';
+        if (!this.text) {
+          return 'btnLight';
+        }
       } else if (this.dark) {
         return 'btnDark';
       } else if (this.outlined) {
@@ -66,6 +71,10 @@ export default {
 
     &:hover {
       color: $dark-green !important;
+    }
+
+    &.btnLight {
+      color: #FFFFFF;
     }
   }
 }
