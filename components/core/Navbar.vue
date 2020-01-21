@@ -12,18 +12,43 @@
       </h2>
     </main-button>
     <v-spacer />
-    <main-button text light>
-      Restaurants
-    </main-button>
-    <main-button text light>
-      Recipes
-    </main-button>
-    <main-button text light>
-      Saved
-    </main-button>
-    <main-button text light>
-      Login
-    </main-button>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <main-button text light>
+        Restaurants
+      </main-button>
+      <main-button text light>
+        Recipes
+      </main-button>
+      <main-button text light>
+        Saved
+      </main-button>
+      <main-button text light>
+        Login
+      </main-button>
+    </v-toolbar-items>
+
+    <v-toolbar-items class="hidden-md-and-up">
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-app-bar-nav-icon />
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="n in 5"
+            :key="n"
+            @click="() => {}"
+          >
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-toolbar-items>
     <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
     <!-- <v-toolbar-title>Page title</v-toolbar-title> -->
     <!-- <logo /> -->
