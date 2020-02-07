@@ -1,89 +1,92 @@
 <template>
-  <v-app-bar
-    app
-    class="navShadow"
-    style="background-color:transparent;"
-    dark
-    flat
-  >
-    <main-button href="/" text light nuxt>
-      <h2>
-        Tacomatic
-      </h2>
-    </main-button>
-    <v-spacer />
-    <v-toolbar-items class="hidden-sm-and-down">
-      <main-button text light>
-        Restaurants
-      </main-button>
-      <main-button text light>
-        Recipes
-      </main-button>
-      <main-button text light>
-        Saved
-      </main-button>
-      <main-button text light>
-        Login
-      </main-button>
-    </v-toolbar-items>
-
-    <v-toolbar-items class="hidden-md-and-up">
-      <v-menu
-        left
-        bottom
-      >
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
-            <v-app-bar-nav-icon />
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item
-            v-for="n in 5"
-            :key="n"
-            @click="() => {}"
-          >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-toolbar-items>
-    <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
-    <!-- <v-toolbar-title>Page title</v-toolbar-title> -->
-    <!-- <logo /> -->
-
-    <!-- <v-spacer></v-spacer>
-
-    <v-btn icon>
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
-
-    <v-menu
-      left
-      bottom
+  <v-container pa-0>
+    <v-app-bar
+      app
+      class="navShadow hidden-sm-and-down"
+      style="background-color:transparent;"
+      dark
+      flat
     >
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on" icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-      </template>
-
-      <v-list>
-        <v-list-item
-          v-for="n in 5"
-          :key="n"
-          @click="() => {}"
+      <main-button href="/" text light nuxt>
+        <h2>
+          Tacomatic
+        </h2>
+      </main-button>
+      <v-spacer />
+      <v-toolbar-items>
+        <main-button text light>
+          Restaurants
+        </main-button>
+        <main-button text light>
+          Recipes
+        </main-button>
+        <main-button text light>
+          Saved
+        </main-button>
+        <main-button text light>
+          Login
+        </main-button>
+      </v-toolbar-items>
+    </v-app-bar>
+    <v-app-bar
+      app
+      class="hidden-md-and-up"
+      style="background-color:transparent;"
+      flat
+    >
+      <!-- <v-toolbar-items>
+        <v-menu
+          right
+          bottom
+          transition="slide-y-transition"
         >
-          <v-list-item-title>Option {{ n }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu> -->
-  </v-app-bar>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" icon>
+              <v-app-bar-nav-icon />
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              @click="() => {}"
+            >
+              <v-list-item-title>Restaurants</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              @click="() => {}"
+            >
+              <v-list-item-title>Recipes</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              @click="() => {}"
+            >
+              <v-list-item-title>Saved</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              @click="() => {}"
+            >
+              <v-list-item-title>Login</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-toolbar-items> -->
+      <v-row class="justify-center">
+        <v-toolbar-items>
+          <main-button class="mx-n4" style="font-size:0.7rem" text light>
+            Restaurants
+          </main-button>
+          <main-button class="mx-n4" style="font-size:0.7rem" text light>
+            Recipes
+          </main-button>
+          <main-button class="mx-n4" style="font-size:0.7rem" text light>
+            Saved
+          </main-button>
+          <main-button class="mx-n4" style="font-size:0.7rem" text light>
+            Login
+          </main-button>
+        </v-toolbar-items>
+      </v-row>
+    </v-app-bar>
+  </v-container>
 </template>
 
 <script>

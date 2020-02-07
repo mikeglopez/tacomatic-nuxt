@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12" class="ma-0 text-center">
         <h1
-          :class="`${$vuetify.breakpoint.xs ? 'mobile-logo dark-green--text': 'white--text'} mt-7 text-center`"
+          class="mobile-logo dark-green--text mt-7 text-center"
         >
           Tacomatic
         </h1>
