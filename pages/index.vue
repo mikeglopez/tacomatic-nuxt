@@ -2,7 +2,7 @@
   <v-container fluid class="ma-0">
     <v-row>
       <v-col class="text-center">
-        <location-modal />
+        <location-modal @location="getLocation" />
         <!-- <v-row>
           <v-col cols="12" md="2">
             <v-btn

@@ -1,5 +1,7 @@
 <template>
   <v-text-field
+    ref="autocomplete"
+    v-model="autocompleteInput"
     :label="label"
     :placeholder="placeholder"
     outlined
@@ -16,6 +18,32 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    }
+  },
+  data () {
+    return {
+      autocomplete: null,
+      autocompleteInput: null,
+      location: {
+        components: null,
+        geometry: null,
+        formatted: null
+      }
+    };
+  },
+  mounted () {
+    // eslint-disable-next-line no-undef
+    this.autocomplete = new google.maps.places.Autocomplete(this.$refs.autocomplete.$refs.input);
+    this.autocomplete.addListener('place_changed', this.onPlaceChanged);
+  },
+  methods: {
+    onPlaceChanged () {
+      // this.autocomplete.getPlace().address_components.forEach(component => {
+      //   this.location.components[]
+      // });
+      this.location.geometry = this.autocomplete.getPlace().geometry;
+      this.location.formatted = this.autocomplete.getPlace().formatted_address;
+      this.autocompleteInput = this.location.formatted;
     }
   }
 };

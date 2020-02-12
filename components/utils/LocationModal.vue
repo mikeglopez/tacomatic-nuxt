@@ -17,7 +17,7 @@
           <v-row>
             <v-col>
               <v-row class="justify-center mb-8">
-                <main-button dark>
+                <main-button @click="getLocation" dark>
                   Share Location
                 </main-button>
               </v-row>
@@ -87,6 +87,9 @@ export default {
     };
   },
   methods: {
+    getLocation () {
+      this.$emit('location');
+    },
     saveAddress () {
       console.log('Address:', this.address);
     }

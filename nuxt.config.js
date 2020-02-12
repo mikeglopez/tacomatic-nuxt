@@ -17,7 +17,10 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC9XRXIXCM6BZjih6paAINvwO8Ke4m2Opg&libraries=places', async: true, type: 'text/javascript' }
+    ]
   },
   /*
    ** Customize the progress-bar color
