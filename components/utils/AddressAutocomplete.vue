@@ -44,6 +44,8 @@ export default {
       this.location.geometry = this.autocomplete.getPlace().geometry;
       this.location.formatted = this.autocomplete.getPlace().formatted_address;
       this.autocompleteInput = this.location.formatted;
+
+      this.$emit('placeChanged', this.location);
     }
   }
 };

@@ -16,7 +16,10 @@
 export default {
   props: {
     dark: Boolean,
-    href: String,
+    href: {
+      type: String,
+      default: '#'
+    },
     light: Boolean,
     outlined: Boolean,
     text: Boolean

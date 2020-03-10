@@ -27,7 +27,8 @@ export default {
 
 <style scoped>
 .homeBg {
-  background-image:url('https://i.imgur.com/8zHwgiS.jpg');
+  /* background-image:url('https://i.imgur.com/8zHwgiS.jpg'); */
+  background-color:darkgray;
   background-position:left top;
   background-repeat:no-repeat;
   background-size: cover

@@ -14,6 +14,9 @@
       </main-button>
       <v-spacer />
       <v-toolbar-items>
+        <main-button text light style="border-right: 1px solid;">
+          Foodabase
+        </main-button>
         <main-button text light>
           Restaurants
         </main-button>
