@@ -23,6 +23,7 @@
         <v-row class="justify-center mt-6 px-6">
           <v-expand-transition>
             <address-autocomplete
+              @placeChanged="getAddress"
               v-show="showAddress"
               v-model="address"
               label="Address"
@@ -32,7 +33,7 @@
         </v-row>
         <v-row class="justify-center">
           <v-card-actions v-show="showAddress">
-            <v-btn @click="saveAddress()" color="primary">
+            <v-btn @click="saveAddress" color="primary">
               Save
             </v-btn>
           </v-card-actions>
@@ -72,9 +73,14 @@ export default {
       this.$emit('location');
       this.dialog = false;
     },
+    getAddress (address) {
+      this.address = address;
+    },
     saveAddress () {
-      console.log('Address:', this.address);
+      this.$emit('address', this.address);
       this.dialog = false;
+      this.showAddress = false;
+      this.address = null;
     }
   }
 };

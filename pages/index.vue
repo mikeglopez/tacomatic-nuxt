@@ -2,7 +2,7 @@
   <v-container fluid class="ma-0">
     <v-row>
       <v-col class="text-center">
-        <location-modal @location="getLocation" />
+        <location-modal @location="getLocation" @address="getAddress" />
         <!-- <v-row>
           <v-col cols="12" md="2">
             <v-btn
@@ -60,6 +60,7 @@ export default {
     };
   },
   methods: {
+    // Get users geolocation
     getLocation () {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -83,8 +84,11 @@ export default {
         .then((list) => { this.restaurants = list; })
         .catch(err => console.log('error:', err));
     },
+    // Saves users entered address to location and address? Then search() and getGeocode()
     getAddress (address) {
-      console.log(address);
+      this.address = address.formatted;
+      this.location.latitude = address.geometry.location.lat();
+      this.location.longitude = address.geometry.location.lng();
     }
   }
 };
