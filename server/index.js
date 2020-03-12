@@ -3,14 +3,14 @@ const consola = require('consola');
 const { Nuxt, Builder } = require('nuxt');
 
 const app = express();
-const googleToken = process.env.GOOGLEMAPS_API;
+// const googleToken = process.env.GOOGLEMAPS_API;
 const yelpToken = process.env.YELP_API;
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js');
 config.dev = process.env.NODE_ENV !== 'production';
 const getRestaurants = require('./helpers/getRestaurants.js');
-const getGeocode = require('./helpers/getGeocode.js');
+// const getGeocode = require('./helpers/getGeocode.js');
 
 async function start () {
   // Init Nuxt.js
@@ -36,14 +36,15 @@ async function start () {
       .catch(err => console.log('/search:', err.response.statusText));
   });
 
-  app.get('/geocode', (req, res) => {
-    const location = req.query;
-    getGeocode(googleToken, location)
-      .then((loc) => {
-        res.status(200).send(loc.data.results[0].geometry.location);
-      })
-      .catch(err => console.log('/geocode:', err.response.statusText));
-  });
+  // No longer used with the addition of google maps autocomplete
+  // app.get('/geocode', (req, res) => {
+  //   const location = req.query;
+  //   getGeocode(googleToken, location)
+  //     .then((loc) => {
+  //       res.status(200).send(loc.data.results[0].geometry.location);
+  //     })
+  //     .catch(err => console.log('/geocode:', err.response.statusText));
+  // });
 
   // Give nuxt middleware to express
   app.use(nuxt.render);

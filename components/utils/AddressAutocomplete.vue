@@ -37,10 +37,14 @@ export default {
     this.autocomplete.addListener('place_changed', this.onPlaceChanged);
   },
   methods: {
+    clear () {
+      this.autocompleteInput = null;
+      this.location = {
+        geometry: null,
+        formatted: null
+      };
+    },
     onPlaceChanged () {
-      // this.autocomplete.getPlace().address_components.forEach(component => {
-      //   this.location.components[]
-      // });
       this.location.geometry = this.autocomplete.getPlace().geometry;
       this.location.formatted = this.autocomplete.getPlace().formatted_address;
       this.autocompleteInput = this.location.formatted;

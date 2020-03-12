@@ -23,6 +23,7 @@
         <v-row class="justify-center mt-6 px-6">
           <v-expand-transition>
             <address-autocomplete
+              ref="addr"
               @placeChanged="getAddress"
               v-show="showAddress"
               v-model="address"
@@ -80,7 +81,7 @@ export default {
       this.$emit('address', this.address);
       this.dialog = false;
       this.showAddress = false;
-      this.address = null;
+      this.$refs.addr.clear();
     }
   }
 };
