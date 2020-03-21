@@ -2,18 +2,25 @@
   <v-container fluid class="ma-0">
     <v-row>
       <v-col class="text-center">
-        <location-modal @location="getLocation" @address="getAddress" />
+        <location-modal @location="getLocation" @address="getAddress" :list="listView" />
+      </v-col>
+    </v-row>
+    <v-row v-if="listView">
+      <v-col>
+        <list :address="address" :restaurants="restaurants" @close="listView = false" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import List from '@/components/page/index/List';
 import LocationModal from '@/components/utils/LocationModal';
 
 export default {
   layout: 'home',
   components: {
+    List,
     LocationModal
   },
   data () {
@@ -23,7 +30,8 @@ export default {
         longitude: -87.649
       },
       address: '',
-      restaurants: []
+      restaurants: [],
+      listView: false
     };
   },
   methods: {
@@ -62,6 +70,7 @@ export default {
         }
       })
         .then((list) => { this.restaurants = list; })
+        .then(() => { this.listView = true; })
         .catch(err => console.log('error:', err));
     }
   }

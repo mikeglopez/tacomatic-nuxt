@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="600px">
     <template v-slot:activator="{ on }">
-      <main-button v-on="on" dark>
+      <main-button v-on="on" :loading="processing" dark>
         Location
       </main-button>
     </template>
@@ -60,17 +60,29 @@ export default {
     MainButton
   },
   props: {
-    close: Function
+    list: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     return {
       dialog: false,
       showAddress: false,
-      address: null
+      address: null,
+      processing: false
     };
+  },
+  watch: {
+    list (newVal, oldVal) {
+      if (newVal === false) {
+        this.processing = false;
+      }
+    }
   },
   methods: {
     getLocation () {
+      this.processing = true;
       this.$emit('location');
       this.dialog = false;
     },
@@ -78,6 +90,7 @@ export default {
       this.address = address;
     },
     saveAddress () {
+      this.processing = true;
       this.$emit('address', this.address);
       this.dialog = false;
       this.showAddress = false;

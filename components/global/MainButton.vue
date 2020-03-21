@@ -3,6 +3,7 @@
     @click="$emit('click')"
     :class="btnClass"
     :href="href"
+    :loading="loading"
     :outlined="outlined"
     :text="text"
     class="mainBtn"
@@ -21,6 +22,10 @@ export default {
       default: '#'
     },
     light: Boolean,
+    loading: {
+      type: Boolean,
+      default: false
+    },
     outlined: Boolean,
     text: Boolean
   },
