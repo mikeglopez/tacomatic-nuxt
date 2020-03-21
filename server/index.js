@@ -27,11 +27,9 @@ async function start () {
   }
 
   app.get('/search', (req, res) => {
-    console.log('Entered /search');
     const location = req.query;
     getRestaurants(yelpToken, location)
       .then((restaurants) => {
-        console.log('/search .then');
         const sorted = restaurants.data.businesses.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
         res.status(200).send(sorted);
       })
