@@ -30,7 +30,8 @@ async function start () {
     const location = req.query;
     getRestaurants(yelpToken, location)
       .then((restaurants) => {
-        const sorted = restaurants.data.businesses.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+        // const sorted = restaurants.data.businesses.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+        const sorted = [{ display_phone: '(815) 123-4567', distance: 1234.56789012345, id: 'IDK123456abc', image_url: 'https://foodserviceyequipo.com/wp-content/uploads/2017/11/001-1030x690.jpg', location: { display_address: ['123 Main St', 'MyTown, CA 12345'] }, name: 'MikoMart', rating: 5, review_count: 1234 }];
         res.status(200).send(sorted);
       })
       .catch(err => console.log('/search:', err.response.statusText));
