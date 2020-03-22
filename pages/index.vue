@@ -64,27 +64,21 @@ export default {
     },
     // Search for restaurants using location
     search () {
-      try {
-        this.$axios.$get('/search', {
-          params: {
-            latitude: this.location.latitude,
-            longitude: this.location.longitude
-          }
-        })
-          .then((list) => { this.restaurants = list; })
-          .then(() => { this.listView = true; })
-          .catch(err => console.log('error:', err));
-      } catch {
-        this.$axios.$get('https://taco-matic.herokuapp.com/search', {
-          params: {
-            latitude: this.location.latitude,
-            longitude: this.location.longitude
-          }
-        })
-          .then((list) => { this.restaurants = list; })
-          .then(() => { this.listView = true; })
-          .catch(err => console.log('error:', err));
+      let url;
+      if (process.env.NODE_ENV === 'production') {
+        url = 'https://taco-matic.herokuapp.com/search';
+      } else {
+        url = '/search';
       }
+      this.$axios.$get(url, {
+        params: {
+          latitude: this.location.latitude,
+          longitude: this.location.longitude
+        }
+      })
+        .then((list) => { this.restaurants = list; })
+        .then(() => { this.listView = true; })
+        .catch(err => console.log('error:', err));
     }
   }
 };
