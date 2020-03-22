@@ -66,7 +66,8 @@ export default {
     search () {
       this.$axios.$get('/search', {
         params: {
-          location: this.location
+          latitude: this.location.latitude,
+          longitude: this.location.longitude
         }
       })
         .then((list) => { this.restaurants = list; })
