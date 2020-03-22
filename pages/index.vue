@@ -75,8 +75,11 @@ export default {
           location: this.location
         }
       })
-        .then((list) => { this.restaurants = list; })
-        .then(() => { this.listView = true; })
+        // .then((list) => { this.restaurants = list; })
+        // .then(() => { this.listView = true; })
+        .then((data) => {
+          console.log('data:', data);
+        })
         .catch(err => console.log('error:', err));
     }
   }
