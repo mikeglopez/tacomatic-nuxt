@@ -67,7 +67,14 @@ export default {
     search () {
       console.log('entered this.search');
       const url = '/search';
-      this.$axios.$get(url, {
+
+      const instance = this.$axios.create({
+        baseURL: 'http://0.0.0.0:3000/'
+        // timeout: 1000
+        // headers: { 'X-Custom-Header': 'foobar' }
+      });
+
+      instance.$get(url, {
         params: {
           location: this.location
         }
