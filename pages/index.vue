@@ -71,7 +71,10 @@ export default {
       })
         .then((list) => { this.restaurants = list; })
         .then(() => { this.listView = true; })
-        .catch(err => console.log('error:', err));
+        .catch((err) => {
+          console.log('error:', err);
+          this.listView = false;
+        });
     }
   }
 };
