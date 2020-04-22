@@ -69,7 +69,7 @@ export default {
       const url = '/search';
 
       const instance = this.$axios.create({
-        baseURL: 'http://0.0.0.0:3000/'
+        baseURL: 'https://0.0.0.0:3000/'
         // timeout: 1000
         // headers: { 'X-Custom-Header': 'foobar' }
       });
