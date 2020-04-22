@@ -49,9 +49,6 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
   ],
-  server: {
-    host: '0.0.0.0' // default: localhost,
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

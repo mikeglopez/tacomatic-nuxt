@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     pages () {
-      return this.restaurants.length / this.perPage;
+      return Math.ceil(this.restaurants.length / this.perPage);
     },
     visiblePage () {
       return this.restaurants.slice((this.currPage - 1) * this.perPage, this.currPage * this.perPage);

@@ -44,7 +44,6 @@ export default {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
           };
-          console.log('Entered getLocation with location:', this.location.latitude, this.location.longitude, 'and address:', this.address);
           this.search();
         });
       } else {
@@ -65,25 +64,13 @@ export default {
     },
     // Search for restaurants using location
     search () {
-      console.log('entered this.search');
-      const url = '/search';
-
-      const instance = this.$axios.create({
-        baseURL: 'https://0.0.0.0:3000/'
-        // timeout: 1000
-        // headers: { 'X-Custom-Header': 'foobar' }
-      });
-
-      instance.$get(url, {
+      this.$axios.$get('/search', {
         params: {
           location: this.location
         }
       })
         .then((list) => { this.restaurants = list; })
         .then(() => { this.listView = true; })
-        // .then((data) => {
-        //   console.log('data:', data);
-        // })
         .catch(err => console.log('error:', err));
     }
   }

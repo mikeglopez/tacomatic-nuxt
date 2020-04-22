@@ -19,7 +19,7 @@ export default {
     dark: Boolean,
     href: {
       type: String,
-      default: '#'
+      default: ''
     },
     light: Boolean,
     loading: {
