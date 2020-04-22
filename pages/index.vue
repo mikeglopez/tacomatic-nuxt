@@ -64,12 +64,7 @@ export default {
     },
     // Search for restaurants using location
     search () {
-      let url;
-      // if (process.env.NODE_ENV === 'production') {
-      // url = 'https://taco-matic.herokuapp.com/search';
-      // } else {
-      url = '/search';
-      // }
+      const url = '/search';
       this.$axios.$get(url, {
         params: {
           location: this.location
