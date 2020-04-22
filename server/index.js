@@ -1,5 +1,6 @@
 const express = require('express');
 const consola = require('consola');
+const cors = require('cors');
 const { Nuxt, Builder } = require('nuxt');
 
 const app = express();
@@ -25,6 +26,8 @@ async function start () {
   } else {
     await nuxt.ready();
   }
+
+  app.use(cors());
 
   app.get('/search', (req, res) => {
     const location = req.query;
