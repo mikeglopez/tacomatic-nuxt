@@ -13,6 +13,8 @@ config.dev = process.env.NODE_ENV !== 'production';
 const getRestaurants = require('./helpers/getRestaurants.js');
 // const getGeocode = require('./helpers/getGeocode.js');
 
+app.use(cors());
+
 async function start () {
   // Init Nuxt.js
   const nuxt = new Nuxt(config);
@@ -26,8 +28,6 @@ async function start () {
   } else {
     await nuxt.ready();
   }
-
-  app.use(cors());
 
   app.get('/search', (req, res) => {
     const location = req.query;
