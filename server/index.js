@@ -13,8 +13,6 @@ config.dev = process.env.NODE_ENV !== 'production';
 const getRestaurants = require('./helpers/getRestaurants.js');
 // const getGeocode = require('./helpers/getGeocode.js');
 
-app.use(cors());
-
 async function start () {
   // Init Nuxt.js
   const nuxt = new Nuxt(config);
@@ -28,6 +26,13 @@ async function start () {
   } else {
     await nuxt.ready();
   }
+
+  // app.use(cors());
+  app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 
   app.get('/search', (req, res) => {
     const location = req.query;
