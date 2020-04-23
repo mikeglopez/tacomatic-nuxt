@@ -47,8 +47,17 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000/*',
+      pathRewrite: {
+        '^/api': '/'
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
