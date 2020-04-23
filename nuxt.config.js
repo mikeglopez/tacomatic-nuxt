@@ -51,18 +51,21 @@ module.exports = {
     '@nuxtjs/proxy'
   ],
   proxy: {
-    '/api': {
-      target: 'http://localhost:3000/*',
+    '/seach/': {
+      target: 'http://localhost:3000/',
       pathRewrite: {
-        '^/api': '/'
-      }
+        '^/search/': ''
+      },
+      changeOrigin: true
     }
   },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
