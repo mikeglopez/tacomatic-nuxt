@@ -46,6 +46,10 @@ async function start () {
       .catch(err => console.log('/search:', err.response.statusText));
   });
 
+  app.get('/test', (req, res) => {
+    res.status(200).send('reached test');
+  });
+
   // No longer used with the addition of google maps autocomplete
   // app.get('/geocode', (req, res) => {
   //   const location = req.query;

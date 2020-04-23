@@ -51,10 +51,10 @@ module.exports = {
     '@nuxtjs/proxy'
   ],
   proxy: {
-    '/search/': {
+    '/api/': {
       target: 'http://localhost:3000/',
       pathRewrite: {
-        '^/search/': ''
+        '^/api/': ''
       },
       changeOrigin: true
     }

@@ -64,13 +64,15 @@ export default {
     },
     // Search for restaurants using location
     search () {
-      this.$axios.$get('/search', {
-        params: {
-          location: this.location
-        }
-      })
-        .then((list) => { this.restaurants = list; })
-        .then(() => { this.listView = true; })
+      // this.$axios.$get('/search', {
+      //   params: {
+      //     location: this.location
+      //   }
+      // })
+      this.$axios.$get('/test')
+        .then(result => console.log('result:', result))
+        // .then((list) => { this.restaurants = list; })
+        // .then(() => { this.listView = true; })
         .catch((err) => {
           console.log('error:', err);
           this.listView = false;
