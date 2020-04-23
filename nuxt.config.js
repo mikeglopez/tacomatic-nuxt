@@ -51,7 +51,7 @@ module.exports = {
     '@nuxtjs/proxy'
   ],
   proxy: {
-    '/seach/': {
+    '/search/': {
       target: 'http://localhost:3000/',
       pathRewrite: {
         '^/search/': ''
