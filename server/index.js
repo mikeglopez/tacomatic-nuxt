@@ -28,15 +28,9 @@ async function start () {
   }
 
   app.use(cors());
-  // app.use(function (req, res, next) {
-  //   res.header('Access-Control-Allow-Origin', '*');
-  //   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  //   next();
-  // });
 
   app.get('/search', (req, res) => {
     const location = req.query;
-    console.log('location:', location);
     getRestaurants(yelpToken, location)
       .then((restaurants) => {
         const sorted = restaurants.data.businesses.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
